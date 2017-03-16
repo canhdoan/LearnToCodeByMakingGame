@@ -27,6 +27,10 @@ namespace Namespace.PlayerController
 		private float _minX;
 		private float _maxX;
 		[SerializeField] private float _padding = 1.0f;
+
+		public GameObject projectTile;
+		public float fireRepeatRate;
+
 		#endregion // Fields
 
 		#region Methods
@@ -56,6 +60,11 @@ namespace Namespace.PlayerController
 		/// Update is called once per frame
 		void Update ()
 		{
+			if (Input.GetKeyDown(KeyCode.Space))
+				InvokeRepeating("Fire", 0.0001f, fireRepeatRate);
+			if (Input.GetKeyUp(KeyCode.Space))
+				CancelInvoke("Fire");
+
 			if (Input.GetKey(KeyCode.LeftArrow))
 			{
 				OnMovingLeft();
@@ -70,6 +79,11 @@ namespace Namespace.PlayerController
 
 
 		#region Class's Methods
+		private void Fire()
+		{
+			Instantiate(projectTile.gameObject, transform.position, Quaternion.identity);
+		}
+
 		private void OnMovingLeft()
 		{
 			Vector3 target = _thisTransform.position + Vector3.left;
