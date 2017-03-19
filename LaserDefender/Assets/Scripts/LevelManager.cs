@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour 
 {
-
 	void Awake() 
 	{
 		Debug.Log ("Level Manager Awake " + GetInstanceID ());

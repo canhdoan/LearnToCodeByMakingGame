@@ -10,7 +10,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 using UnityEngine;
 
-
 public class Projectile : MonoBehaviour
 {
 	public float projectileSpeed = 15.0f;

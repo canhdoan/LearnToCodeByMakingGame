@@ -9,23 +9,17 @@
 // part, without the written consent of AsNet Co., Ltd.
 ////////////////////////////////////////////////////////////////////////////////
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
-namespace Namespace.SpawnPoint
+/// <summary>
+/// SpawnPoint
+/// </summary>
+public class SpawnPoint : MonoBehaviour
 {
 	/// <summary>
-	/// SpawnPoint
+	/// Callback to draw gizmos that are pickable and always drawn.
 	/// </summary>
-	public class SpawnPoint : MonoBehaviour
+	void OnDrawGizmos()
 	{
-		/// <summary>
-		/// Callback to draw gizmos that are pickable and always drawn.
-		/// </summary>
-		void OnDrawGizmos()
-		{
-			Gizmos.DrawWireSphere(transform.position, 1.0f);
-		}
+		Gizmos.DrawWireSphere(transform.position, 1.0f);
 	}
 }
-

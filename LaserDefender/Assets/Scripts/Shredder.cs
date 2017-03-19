@@ -10,22 +10,18 @@
 ////////////////////////////////////////////////////////////////////////////////
 using UnityEngine;
 
-namespace Namespace.Shredder
+/// <summary>
+/// Shredder
+/// </summary>
+public class Shredder : MonoBehaviour
 {
 	/// <summary>
-	/// Shredder
+	/// Sent when an incoming collider makes contact with this object's
+	/// collider (2D physics only).
 	/// </summary>
-	public class Shredder : MonoBehaviour
+	/// <param name="other">The Collision2D data associated with this collision.</param>
+	void OnCollisionEnter2D(Collision2D other)
 	{
-		/// <summary>
-		/// Sent when an incoming collider makes contact with this object's
-		/// collider (2D physics only).
-		/// </summary>
-		/// <param name="other">The Collision2D data associated with this collision.</param>
-		void OnCollisionEnter2D(Collision2D other)
-		{
-			Destroy(other.gameObject);
-		}
+		Destroy(other.gameObject);
 	}
 }
-

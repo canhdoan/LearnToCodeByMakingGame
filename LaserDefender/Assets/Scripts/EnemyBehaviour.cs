@@ -12,7 +12,29 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+	public GameObject projectile;
+	public float shortPerSecond = 0.5f;
 	public float health = 150.0f;
+
+	/// <summary>
+	/// Start is called on the frame when a script is enabled just before
+	/// any of the Update methods is called the first time.
+	/// </summary>
+	void Start()
+	{
+		
+	}
+
+	/// <summary>
+	/// Update is called every frame, if the MonoBehaviour is enabled.
+	/// </summary>
+	void Update()
+	{
+		float prob = shortPerSecond*Time.deltaTime;
+		if (Random.value < prob)
+			Fire();
+	}
+
 	/// <summary>
 	/// Sent when another object enters a trigger collider attached to this
 	/// object (2D physics only).
@@ -31,6 +53,11 @@ public class EnemyBehaviour : MonoBehaviour
 				Destroy(gameObject);
 			}
 		}
+	}
+
+	void Fire()
+	{
+		GameObject laser = (GameObject)Instantiate(projectile, transform.position + Vector3.down, Quaternion.identity);
 	}
 }
 
